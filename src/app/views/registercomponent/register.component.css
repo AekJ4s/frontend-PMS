@@ -1,0 +1,92 @@
+::selection {
+  background-color: rgb(128, 128, 128);
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  width: 400px;
+  height: 450px;
+  background-image: linear-gradient(to bottom, #ffffff,rgb(166, 0, 255));
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0.5rem;
+}
+
+.title {
+  color: rgb(0, 0, 0);
+  margin: 3rem 0;
+  font-size: 2rem;
+}
+
+.input {
+  margin: 0.5rem 0;
+  padding: 1rem 0.5rem;
+  width: 20rem;
+  background-color: inherit;
+  color: wheat;
+  border: none;
+  outline: none;
+}
+
+.username {
+  border-bottom: 1px solid wheat;
+  transition: all 400ms;
+}
+
+.username:hover {
+  background-color: #424242;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.password {
+  border-bottom: 1px solid wheat;
+  transition: all 400ms;
+}
+
+.password:hover {
+  background-color: #424242;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.btn {
+  height: 3rem;
+  width: 20rem;
+  margin-top: 3rem;
+  background-color: rgb(166, 0, 255);
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1.2rem;
+  transition: all 400ms;
+  box-shadow: 0 0 10px  antiquewhite, 0 0 10px antiquewhite;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.405);
+  box-shadow: none;
+}
+/* CSS */
+.container {
+  display: flex;
+  justify-content: center; /* จัดให้อยู่ตรงกลางตามแนวนอน */
+  align-items: center; /* จัดให้อยู่ตรงกลางตามแนวตั้ง */
+  height: 75vh; /* ทำให้ขยับได้ตามความสูงของหน้าจอ */
+}
+
+.content {
+  width: 300px; /* กำหนดความกว้างของ content */
+  height: 200px; /* กำหนดความสูงของ content */
+  background-color: #f0f0f0;
+  text-align: center; /* จัดให้อยู่ตรงกลางเนื้อหา */
+  line-height: 200px; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+}
