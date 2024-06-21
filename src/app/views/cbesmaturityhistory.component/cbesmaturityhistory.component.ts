@@ -4,19 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
 @Component({
-  selector: 'register-page',
+  selector: 'cbesmaturityhistory-page',
   standalone: true,
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  templateUrl: './cbesmaturityhistory.component.html',
+  styleUrls: ['./cbesmaturityhistory.component.css'],
   imports: [CommonModule, RouterModule, FormsModule],
   providers: [DatePipe],
 })
-export class RegisterComponent {
+export class CBEsMaturityHistoryComponent {
 
   constructor() {}
 
   onSubmit(){
-    console.log("register button work !")
+    console.log("login button work !")
   }
-
 }

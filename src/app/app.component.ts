@@ -11,12 +11,38 @@ import { FooterComponent } from './views/footer/footer.component';
 import { LoginComponent } from './views/logincomponent/login.component';
 import { RegisterComponent } from './views/registercomponent/register.component';
 import { NotfoundComponent } from './views/notfound/notfound.component';
+import { RoleCreateComponent } from './views/rolecreatecomponent/rolecreate.component';
+import { RoleListComponent } from './views/rolelistcomponent/rolelist.component';
+import { RoleCreateUserComponent } from './views/roleusercreate.component/roleusercreate.component';
+import { RoleBinListComponent } from './views/rolebinlist.component/rolebinlist.component';
+import { CBEsListComponent } from './views/cbeslist.component/cbeslist.component';
+import { CBEsCreateComponent } from './views/cbescreate.component/cbescreate.component';
+import { CBEsSupervisorCreateComponent } from './views/cbessupervisorcreate.component/cbessupervisorcreate.component';
+import { CBEsHistoryListComponent } from './views/cbeshistorylist.component/cbeshistorylist.component';
+import { CBEsHistoryComponent } from './views/cbeshistory.component/cbeshistory.component';
+import { CBEsMaturityHistoryComponent } from './views/cbesmaturityhistory.component/cbesmaturityhistory.component';
+import { CBEsSupervisorHistoryComponent } from './views/cbessupervisorhistory.component/cbessupervisorhistory.component';
+import { CBEsBinListComponent } from './views/cbesbin.component/cbesbin.component';
+import { CBEsTargetResultListComponent } from './views/cbestargetresultlist.component/cbestargetresultlist.component';
 @Component({
   selector: 'app-root',
   standalone:true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [
+    CBEsTargetResultListComponent,
+    CBEsBinListComponent,
+    CBEsSupervisorHistoryComponent,
+    CBEsMaturityHistoryComponent,
+    CBEsHistoryComponent,
+    CBEsHistoryListComponent,
+    CBEsSupervisorCreateComponent,
+    CBEsCreateComponent,
+    CBEsListComponent,
+    RoleBinListComponent,
+    RoleCreateUserComponent,
+    RoleListComponent,
+    RoleCreateComponent,
     NotfoundComponent,
     RegisterComponent,
     LoginComponent,
@@ -29,7 +55,7 @@ import { NotfoundComponent } from './views/notfound/notfound.component';
     RouterOutlet,
   ],
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   title = 'CBEs Management Angular';
   opennav = false
   timeupdate = Date();
@@ -37,14 +63,13 @@ export class AppComponent implements OnInit{
   thailandTime: string = this.timenow.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' });
 
   constructor(private router: Router) {}
-  ngOnInit() {
-    // Simulate a 2-second countdown before redirecting to home page
-    this.router.navigate(['loading']);
-    setTimeout(() => {
-      this.opennav = true
-      this.router.navigate(['home']);
-      console.log("COUNT")
-    }, 1000);
-  }
+  // ngOnInit() {
+  //   this.router.navigate(['loading']);
+  //   setTimeout(() => {
+  //     this.opennav = true
+  //     this.router.navigate(['home']);
+  //     console.log("COUNT")
+  //   }, 1000);
+  // }
 
 }

@@ -1,0 +1,169 @@
+<div class="card d-flex">
+  <section class="section_form">
+    <form id="consultation-form" class="feed-form" action="#">
+      <h1 class="border-3 border-dark border-bottom">สร้างโครงการ</h1>
+      <input required="" placeholder="ชื่อหัวข้อภาษาไทย" type="text" />
+      <input required="" placeholder="ชื่อหัวข้อภาษาอังกฤษ" type="text" />
+      <input required="" placeholder="ตัวย่อ" type="text" />
+
+      <label for="round">รอบการแก้ไข</label>
+      <select name="round">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+      <label for="remark">หมายเหตุในการบันทึก</label>
+      <textarea name="remark" placeholder="หมายเหตุการแก้ไข"></textarea>
+      <small>*ต้องกรอกหมายเหตุก่อนแก้ไข</small>
+
+      <div class="mt-3 border-3 border-dark border-top">
+        <div class="d-flex mt-3">
+          <h3>หลักเกณฑ์</h3>
+          <button class="ms-3 btn btn-sm btn-success mb-3">
+            เพิ่มกระบวนการ
+          </button>
+        </div>
+
+        <table >
+          <thead>
+            <tr>
+              <th>กระบวนการ</th>
+              <th>ประเด็น</th>
+              <th>ประเด็นย่อย</th>
+              <th>น้ำหนัก</th>
+              <th>จัดการ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><textarea placeholder="level1"></textarea></th>
+              <th></th>
+              <th></th>
+              <th>
+                <input
+                  type="number"
+                  placeholder="20"
+                  style="width: 75px; text-align: center"
+                />
+              </th>
+              <th>
+                <button class="btn btn-sm btn-danger">ลบ</button>
+                <button class="ms-3 btn btn-sm btn-success">
+                  เพิ่มประเด็น
+                </button>
+              </th>
+            </tr>
+            <tr>
+              <th></th>
+              <th><textarea placeholder="level2"></textarea></th>
+              <th></th>
+              <th>
+                <input
+                  type="number"
+                  placeholder="20"
+                  style="width: 75px; text-align: center"
+                />
+              </th>
+              <th>
+                <button class="btn btn-sm btn-danger">ลบ</button>
+                <button class="ms-3 btn btn-sm btn-success">
+                  เพิ่มประเด็นย่อย
+                </button>
+              </th>
+            </tr>
+            <tr>
+              <th></th>
+              <th></th>
+              <th><textarea placeholder="level3"></textarea></th>
+              <th>
+                <input
+                  type="number"
+                  placeholder="20"
+                  style="width: 75px; text-align: center"
+                />
+              </th>
+              <th>
+                <button class="btn btn-sm btn-danger">ลบ</button>
+              </th>
+            </tr>
+            <tr>
+              <th></th>
+              <th></th>
+              <th><textarea placeholder="level3"></textarea></th>
+              <th>
+                <input
+                  type="number"
+                  placeholder="20"
+                  style="width: 75px; text-align: center"
+                />
+              </th>
+              <th>
+                <button class="btn btn-sm btn-danger">ลบ</button>
+              </th>
+            </tr>
+            <tr>
+              <th></th>
+              <th><textarea placeholder="level2"></textarea></th>
+              <th></th>
+              <th>
+                <input
+                  type="number"
+                  placeholder="20"
+                  style="width: 75px; text-align: center"
+                />
+              </th>
+              <th>
+                <button class="btn btn-sm btn-danger">ลบ</button>
+                <button class="ms-3 btn btn-sm btn-success">
+                  เพิ่มประเด็นย่อย
+                </button>
+              </th>
+            </tr>
+            <tr>
+              <th></th>
+              <th></th>
+              <th><textarea placeholder="level3"></textarea></th>
+              <th>
+                <input
+                  type="number"
+                  placeholder="20"
+                  style="width: 75px; text-align: center"
+                />
+              </th>
+              <th>
+                <button class="btn btn-sm btn-danger">ลบ</button>
+              </th>
+            </tr>
+            <tr>
+              <th></th>
+              <th></th>
+              <th><textarea placeholder="level3"></textarea></th>
+              <th>
+                <input
+                  type="number"
+                  placeholder="20"
+                  style="width: 75px; text-align: center"
+                />
+              </th>
+              <th>
+                <button class="btn btn-sm btn-danger">ลบ</button>
+              </th>
+            </tr>
+
+
+
+          </tbody>
+        </table>
+        <div class="d-flex mt-3 mb-3">
+          <button class="btn btn-success">
+            ไปกำหนด Maturity
+          </button>
+          <button class=" ms-3 btn btn-sm btn-success">บันทึก</button>
+        </div>
+      </div>
+
+
+
+    </form>
+  </section>
+</div>

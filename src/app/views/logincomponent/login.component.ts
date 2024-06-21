@@ -15,5 +15,7 @@ export class LoginComponent {
 
   constructor() {}
 
-
+  onSubmit(){
+    console.log("login button work !")
+  }
 }

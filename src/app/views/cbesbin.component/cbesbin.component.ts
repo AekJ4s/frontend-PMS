@@ -4,19 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
 @Component({
-  selector: 'register-page',
+  selector: 'cbesbin-page',
   standalone: true,
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  templateUrl: './cbesbin.component.html',
+  styleUrls: ['./cbesbin.component.css'],
   imports: [CommonModule, RouterModule, FormsModule],
   providers: [DatePipe],
 })
-export class RegisterComponent {
+export class CBEsBinListComponent {
 
   constructor() {}
 
   onSubmit(){
-    console.log("register button work !")
+    console.log("login button work !")
   }
-
 }
