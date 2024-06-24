@@ -1,6 +1,3 @@
-
-
-
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -24,12 +21,40 @@ import { CBEsMaturityHistoryComponent } from './views/cbesmaturityhistory.compon
 import { CBEsSupervisorHistoryComponent } from './views/cbessupervisorhistory.component/cbessupervisorhistory.component';
 import { CBEsBinListComponent } from './views/cbesbin.component/cbesbin.component';
 import { CBEsTargetResultListComponent } from './views/cbestargetresultlist.component/cbestargetresultlist.component';
+import { CBEsTargetCreateComponent } from './views/cbestargetcreate.component/cbestargetcreate.component';
+import { CBEsTargetResultHistoryListComponent } from './views/cbestargetresulthistorylist.component/cbestargetresulthistorylist.component';
+import { CBEsTargetHistoryByID } from './views/cbestargethistory.component/cbestargethistory.component';
+import { CBEsManagePlanning } from './views/cbesmanageplanning.component/cbesmanageplanning.component';
+import { CBEsPlanningList } from './views/cbesplanninglist.component/cbesplanninglist.component';
+import { CBEsPlanningCreate } from './views/cbesplanningcreate.component/cbesplanningcreate.component';
+import { CBEsPlanningTargetCreate } from './views/cbesplanningcreatetarget.component/cbesplanningcreatetarget.component';
+import { CBEsPlanningResultCreate } from './views/cbesplanningcreateresult.component/cbesplanningcreateresult.component';
+import { CBEsMaturityCreateComponent } from './views/cbesmaturitycreate.component/cbesmaturitycreate.component';
+import { CBEsPlanningDraft } from './views/cbesplanningdraft.component/cbesplanningdraft.component';
+import { CBEsPlanningHistoryListComponent } from './views/cbesplanninghistorylist.component/cbesplanninghistorylist.component';
+import { CBEsPlanningTargetHistory } from './views/cbesplanningtargethistory.component/cbesplanningtargethistory.component';
+import { CBEsPlanningResultHistory } from './views/cbesplanningresulthistory.component/cbesplanningresulthistory.component';
+import { CBEsPlanningBinComponent } from './views/cbesplanningbin.component/cbesplanningbin.component';
 @Component({
   selector: 'app-root',
   standalone:true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [
+    CBEsPlanningBinComponent,
+    CBEsPlanningResultHistory,
+    CBEsPlanningTargetHistory,
+    CBEsPlanningHistoryListComponent,
+    CBEsPlanningDraft,
+    CBEsMaturityCreateComponent,
+    CBEsPlanningResultCreate,
+    CBEsPlanningTargetCreate,
+    CBEsPlanningCreate,
+    CBEsPlanningList,
+    CBEsManagePlanning,
+    CBEsTargetHistoryByID,
+    CBEsTargetResultHistoryListComponent,
+    CBEsTargetCreateComponent,
     CBEsTargetResultListComponent,
     CBEsBinListComponent,
     CBEsSupervisorHistoryComponent,

@@ -18,6 +18,19 @@ import { CBEsMaturityHistoryComponent } from './views/cbesmaturityhistory.compon
 import { CBEsSupervisorHistoryComponent } from './views/cbessupervisorhistory.component/cbessupervisorhistory.component';
 import { CBEsBinListComponent } from './views/cbesbin.component/cbesbin.component';
 import { CBEsTargetResultListComponent } from './views/cbestargetresultlist.component/cbestargetresultlist.component';
+import { CBEsTargetCreateComponent } from './views/cbestargetcreate.component/cbestargetcreate.component';
+import { CBEsResultCreateComponent } from './views/cbesresultcreate.component/cbesresultcreate.component';
+import { CBEsTargetResultHistoryListComponent } from './views/cbestargetresulthistorylist.component/cbestargetresulthistorylist.component';
+import { CBEsTargetHistoryByID } from './views/cbestargethistory.component/cbestargethistory.component';
+import { CBEsManagePlanning } from './views/cbesmanageplanning.component/cbesmanageplanning.component';
+import { CBEsPlanningList } from './views/cbesplanninglist.component/cbesplanninglist.component';
+import { CBEsPlanningCreate } from './views/cbesplanningcreate.component/cbesplanningcreate.component';
+import { CBEsPlanningTargetCreate } from './views/cbesplanningcreatetarget.component/cbesplanningcreatetarget.component';
+import { CBEsPlanningResultCreate } from './views/cbesplanningcreateresult.component/cbesplanningcreateresult.component';
+import { CBEsPlanningDraft } from './views/cbesplanningdraft.component/cbesplanningdraft.component';
+import { CBEsPlanningHistoryListComponent } from './views/cbesplanninghistorylist.component/cbesplanninghistorylist.component';
+import { CBEsPlanningTargetHistory } from './views/cbesplanningtargethistory.component/cbesplanningtargethistory.component';
+import { CBEsPlanningResultHistory } from './views/cbesplanningresulthistory.component/cbesplanningresulthistory.component';
 
 export const routes: Routes = [
 
@@ -28,7 +41,7 @@ export const routes: Routes = [
   {path:'role/list',component:RoleListComponent},
   {path:'role/create',component:RoleCreateComponent},
   {path:'role/users/create',component:RoleCreateUserComponent},
-  {path:'role/bin/list',component:RoleBinListComponent},
+  {path:'role/bin',component:RoleBinListComponent},
   {path:'CBEs/list',component:CBEsListComponent},
   {path:'CBEs/create',component:CBEsCreateComponent},
   {path:'CBEs/maturity/create',component:CBEsMaturityCreateComponent},
@@ -37,8 +50,41 @@ export const routes: Routes = [
   {path:'CBEs/history/:id',component:CBEsHistoryComponent},
   {path:'CBEs/history/maturity/:id',component:CBEsMaturityHistoryComponent},
   {path:'CBEs/history/supervisor/:id',component:CBEsSupervisorHistoryComponent},
-  {path:'CBEs/bin/list',component:CBEsBinListComponent},
+  {path:'CBEs/bin',component:CBEsBinListComponent},
   {path:'CBEsTargetResult/list',component:CBEsTargetResultListComponent},
+  {path:'CBEsTargetResult/target',component:CBEsTargetCreateComponent},
+  {path:'CBEsTargetResult/result',component:CBEsResultCreateComponent},
+  {path:'CBEsTargetResult/history/list',component:CBEsTargetResultHistoryListComponent},
+  {path:'CBEsTargetResult/targethistory/:id',component:CBEsTargetHistoryByID},
+  {path:'CBEsPlanning/manageplanning',component:CBEsManagePlanning},
+  {path:'CBEsPlanning/list',component:CBEsPlanningList},
+  {path:'CBEsPlanning/create',component:CBEsPlanningCreate},
+  {path:'CBEsPlanning/target/create',component:CBEsPlanningTargetCreate},
+  {path:'CBEsPlanning/result/create',component:CBEsPlanningResultCreate},
+  {path:'CBEsPlanning/draft/:id',component:CBEsPlanningDraft},
+  {path:'CBEsPlanning/history/list',component:CBEsPlanningHistoryListComponent},
+  {path:'CBEsPlanning/history/target/:id',component:CBEsPlanningTargetHistory},
+  {path:'CBEsPlanning/history/result/:id',component:CBEsPlanningResultHistory},
+  {path:'CBEsPlanning/bin/:id',component:CBEsBinListComponent},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
