@@ -1,10 +1,13 @@
 <div class="card d-flex">
   <section class="section_form">
     <form id="consultation-form" class="feed-form" action="#">
-      <h1 class="border-3 border-dark border-bottom">สร้างโครงการ</h1>
-      <input required="" placeholder="ชื่อหัวข้อภาษาไทย" type="text" />
-      <input required="" placeholder="ชื่อหัวข้อภาษาอังกฤษ" type="text" />
-      <input required="" placeholder="ตัวย่อ" type="text" />
+      <h1 class="border-3 border-dark border-bottom">จัดการหลักเกณฑ์ CBEs</h1>
+      <label for="thainame">ชื่อภาษาไทย</label>
+      <input name="thainame" required="" placeholder="ชื่อหัวข้อภาษาไทย" type="text" />
+      <label for="engname">ชื่อภาษาอังกฤษ</label>
+      <input name="engname" required="" placeholder="ชื่อหัวข้อภาษาอังกฤษ" type="text" />
+      <label for="shortname">ตัวย่อ</label>
+      <input name="shortname" required="" placeholder="ตัวย่อ" type="text" />
 
       <label for="round">รอบการแก้ไข</label>
       <select name="round">
@@ -19,7 +22,7 @@
       <div class="mt-3 border-3 border-dark border-top">
         <div class="d-flex mt-3">
           <h3>หลักเกณฑ์</h3>
-          <button class="ms-3 btn btn-sm btn-success mb-3">
+          <button class="ms-3 mb-3">
             เพิ่มกระบวนการ
           </button>
         </div>
@@ -155,10 +158,10 @@
           </tbody>
         </table>
         <div class="d-flex mt-3 mb-3">
-          <button class="btn btn-success">
-            ไปกำหนด Maturity
+          <button style="width:fit-content;">
+            บันทึกและไปกำหนด Maturity
           </button>
-          <button class=" ms-3 btn btn-sm btn-success">บันทึก</button>
+          <button class="ms-3">บันทึก</button>
         </div>
       </div>
 

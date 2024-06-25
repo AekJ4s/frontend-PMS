@@ -1,10 +1,13 @@
 <div class="card d-flex">
   <section class="section_form">
     <form id="consultation-form" class="feed-form" action="#">
-      <h1 class="border-3 border-dark border-bottom">แก้ไขหลักเกณฑ์ CBEs</h1>
-      <input required="" placeholder="ชื่อหัวข้อภาษาไทย" type="text" disabled />
-      <input required="" placeholder="ชื่อหัวข้อภาษาอังกฤษ" type="text" disabled/>
-      <input required="" placeholder="ตัวย่อ" type="text" disabled/>
+      <h1 class="border-3 border-dark border-bottom">จัดการหลักเกณฑ์ CBEs</h1>
+      <label for="thainame">ชื่อภาษาไทย</label>
+      <input name="thainame" required="" placeholder="ชื่อหัวข้อภาษาไทย" type="text" disabled/>
+      <label for="engname">ชื่อภาษาอังกฤษ</label>
+      <input name="engname" required="" placeholder="ชื่อหัวข้อภาษาอังกฤษ" type="text" disabled/>
+      <label for="shortname">ตัวย่อ</label>
+      <input name="shortname" required="" placeholder="ตัวย่อ" type="text" disabled/>
       <label for="round">รอบการแก้ไข</label>
       <select name="round">
         <option>1</option>
@@ -46,8 +49,8 @@
               <th class="level1" colspan="3"></th>
             </tr>
             <tr>
-              <th colspan="3" class="text-start ms-2">level2</th>
-              <th>
+              <th colspan="3" class="level2 text-start ms-2">level2</th>
+              <th class="level2">
                 <input
                   type="number"
                   placeholder="20"
@@ -55,7 +58,7 @@
                   disabled
                 />
               </th>
-              <th colspan="3"></th>
+              <th class="level2" colspan="3"></th>
             </tr>
             <tr>
               <th colspan="3" class="text-start ms-2">level3</th>
@@ -91,16 +94,12 @@
             </tr>
           </tbody>
         </table>
-        <div class="d-flex mt-3 mb-3">
-          <button class="btn btn-success">
-            กำหนดผู้รับผิดชอบ
-          </button>
-          <button class=" ms-3 btn btn-sm btn-success">บันทึก</button>
-        </div>
+
       </div>
-
-
-
+      <div>
+        <button>บันทึกและไปหน้าแก้ไขหลักเกณฑ์ CBEs</button>
+      <button class=" ms-3 ">บันทึก</button>
+      </div>
     </form>
   </section>
 </div>

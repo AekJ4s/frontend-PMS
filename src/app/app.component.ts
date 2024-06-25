@@ -35,12 +35,16 @@ import { CBEsPlanningHistoryListComponent } from './views/cbesplanninghistorylis
 import { CBEsPlanningTargetHistory } from './views/cbesplanningtargethistory.component/cbesplanningtargethistory.component';
 import { CBEsPlanningResultHistory } from './views/cbesplanningresulthistory.component/cbesplanningresulthistory.component';
 import { CBEsPlanningBinComponent } from './views/cbesplanningbin.component/cbesplanningbin.component';
+import { CBEsPlanningReport } from './views/cbesplanningreport.component/cbesplanningreport.component';
+import { CBEsPlanningReportDraft } from './views/cbesplanningreportdraft.component/cbesplanningreportdraft.component';
 @Component({
   selector: 'app-root',
   standalone:true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [
+    CBEsPlanningReportDraft,
+    CBEsPlanningReport,
     CBEsPlanningBinComponent,
     CBEsPlanningResultHistory,
     CBEsPlanningTargetHistory,

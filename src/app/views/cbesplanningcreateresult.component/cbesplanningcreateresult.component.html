@@ -1,19 +1,22 @@
 <div class="card d-flex p-3">
   <div class="container">
-    <p>แผนดำเนินงานตามหลักเกณฑ์ CBEs</p>
+    <h2>ผลดำเนินงานตามหลักเกณฑ์ CBEs</h2>
     <p>
       หัวข้อ : การกํากับดูแลที่ดีและการนําองค์กร (Corporate Governance &
       Leadership : CG & Leadership)
     </p>
-    <input name="planningname" placeholder="ชื่อแผน" disabled />
+    <label for="planningname">ชื่อแผน : </label>
+    <input
+      name="planningname"
+      placeholder="ชื่อแผน"
+      style="width: 100px"
+      disabled
+    />
     <br /><br />
 
-    <br />
-    <br />
     <div class="d-flex">
       <p>ประเด็นที่เกี่ยวข้อง</p>
-      <div class="text-end">
-      </div>
+      <div class="text-end"></div>
     </div>
     <table>
       <thead>
@@ -67,43 +70,47 @@
     <br />
 
     <div>
-      <label>ปีงบประมาณ : </label>
-      <select class="ms-2">
-        <option>2565</option>
-        <option>2566</option>
-        <option>2567</option>
-      </select>
-      ไตรมาส :
-      <select class="ms-2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-
-      </select>
-      รอบ :
-      <select class="ms-2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-      </select>
+      <div class="d-flex">
+        <label>ปีงบประมาณ : </label>
+        <select class="ms-2">
+          <option>2565</option>
+          <option>2566</option>
+          <option>2567</option>
+        </select>
+      </div>
+      <div class="d-flex">
+        ไตรมาส :
+        <select class="ms-2">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+      <div class="d-flex">
+        รอบการแก้ไข :
+        <select class="ms-2">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+      </div>
       <br />
-      <textarea class="mt-3" placeholder="แก้ไข...."></textarea>
+      <div class="d-flex">
+        <label>หมายเหตุในการบันทึก : </label>
+        <textarea class="ms-2" placeholder="แก้ไข...."></textarea>
+      </div>
     </div>
     <label class="mt-3"> กิจกรรม : </label>
     <table class="tablecontainer">
       <thead>
         <tr>
-          <th rowspan="3">ตัวชี้วัด</th>
+          <th rowspan="3">กิจกรรม</th>
           <th rowspan="3"></th>
-          <th colspan="12" rowspan="1">
-            เป้าหมายระยะเวลาแล้วเสร็จ
-          </th>
-        <th rowspan="3">สรุปสาระสำคัญ</th>
-        <th rowspan="3">ปัญหาที่พบเจอ</th>
-        <th rowspan="3">วิธีแก้ไข</th>
-
-
+          <th colspan="12" rowspan="1">เป้าหมายระยะเวลาแล้วเสร็จ</th>
+          <th rowspan="3">สรุปสาระสำคัญ</th>
+          <th rowspan="3">ปัญหาที่พบเจอ</th>
+          <th rowspan="3">วิธีแก้ไข</th>
         </tr>
         <tr>
           <th colspan="12">ปีงบประมาณ 2565</th>
@@ -114,92 +121,115 @@
           <th colspan="3">Q3</th>
           <th colspan="3">Q4</th>
         </tr>
-
       </thead>
       <tbody>
         <tr>
           <th>
-            <div class="d-flex">
-              SP1.1 กระบวนการ
-              1.<input type="checkbox"/>
-              2.<input type="checkbox"/>
-              3.<input type="checkbox"/>
-              4.<input type="checkbox"/>
-              5.<input type="checkbox"/>
+            <div class="mt-5">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="border-0"></th>
+                    <th class="border-0">1</th>
+                    <th class="border-0">2</th>
+                    <th class="border-0">3</th>
+                    <th class="border-0">4</th>
+                    <th class="border-0">5</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border-0">SP1.1</td>
+                    <td class="border-0">
+                      <input type="checkbox" />
+                    </td>
+                    <td class="border-0">
+                      <input type="checkbox" />
+                    </td>
+                    <td class="border-0">
+                      <input type="checkbox" />
+                    </td>
+                    <td class="border-0">
+                      <input type="checkbox" />
+                    </td>
+                    <td class="border-0">
+                      <input type="checkbox" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="d-flex">
-              SP1.2 กระบวนการ
-              1.<input type="checkbox"/>
-              2.<input type="checkbox"/>
-              3.<input type="checkbox"/>
-              4.<input type="checkbox"/>
-              5.<input type="checkbox"/>
+            <div>
+              <textarea
+                class="mt-3"
+                style="width: 100px; vertical-align: bottom"
+                disabled
+              >กิจกรรม</textarea
+              >
             </div>
-            <div class="d-flex">
-              SP1.3 กระบวนการ
-              1.<input type="checkbox"/>
-              2.<input type="checkbox"/>
-              3.<input type="checkbox"/>
-              4.<input type="checkbox"/>
-              5.<input type="checkbox"/>
-            </div>
-
           </th>
-          <th></th>
+          <th style="height: 100px; vertical-align: bottom" rowspan="1">
+            แผน <br /><br />
+            ผล
+          </th>
+          <th colspan="3" style="height: 100px; vertical-align: bottom">
+            <input type="number" /><br /><br /><input type="number" />
+          </th>
+          <th colspan="3" style="height: 100px; vertical-align: bottom">
+            <input type="number" /><br /><br /><input type="number" />
+          </th>
+          <th colspan="3" style="height: 100px; vertical-align: bottom">
+            <input type="number" /><br /><br /><input type="number" />
+          </th>
+          <th colspan="3" style="height: 100px; vertical-align: bottom">
+            <input type="number" /><br /><br /><input type="number" />
+          </th>
+          <th>
+            <textarea
+              style="height: 100px; vertical-align: bottom"
+              placeholder="summarize"
+            ></textarea>
+          </th>
+          <th>
+            <textarea
+              style="height: 100px; vertical-align: bottom"
+              placeholder="problem"
+            ></textarea>
+          </th>
+          <th>
+            <textarea
+              style="height: 100px; vertical-align: bottom"
+              placeholder="howto"
+            ></textarea>
+          </th>
           <th colspan=" 15"></th>
-
-
         </tr>
-        <tr>
-          <th rowspan="2">
-          <textarea class="mt-3" disabled>กิจกรรม</textarea>
-          </th>
-          <th rowspan="1" >แผน <br/><br/> ผล </th>
-          <th colspan="3">
-            <input type="number"/><br/><br/><input type="number"/>
-          </th>
-          <th colspan="3">
-            <input type="number"/><br/><br/><input type="number"/>
-          </th>
-          <th colspan="3">
-            <input type="number"/><br/><br/><input type="number"/>
-          </th>
-          <th colspan="3">
-            <input type="number"/><br/><br/><input type="number"/>
-          </th>
-          <th> <textarea placeholder="summarize"></textarea></th>
-          <th> <textarea placeholder="problem"></textarea></th>
-          <th> <textarea placeholder="howto"></textarea></th>
-
-        </tr>
-
       </tbody>
     </table>
 
     <div class="mt-3 w-50">
       ร้อยละความก้าวหน้าของทั้งปี :
-      <br/>
-      แผน : <input type="number" disabled/>
-      <br/><br/>
-      ผล : <input type="number" disabled/>
-      <br/><br/>
-      ร้อยละ : <input type="number" disabled/>
-
+      <br />
+      แผน : <input type="number" disabled /> <br /><br />
+      ผล : <input type="number" disabled /> <br /><br />
+      ร้อยละ : <input type="number" disabled />
     </div>
     <div class="border-3 border-dark border-top mt-3">
-      <br/><br/>
+      <br /><br />
       วันและเวลาที่พิจารณา :
-      <br/><br/>
+      <br /><br />
       ชื่อผู้พิจารณา :
-      <br/><br/>
+      <br /><br />
       การอนุมัติ :
-      <br/><br/>
-      หมายเหตุ : <br/><textarea style="width: 300px; height: 100px; background-color: gray;" disabled></textarea>
+      <br /><br />
+      หมายเหตุ : <br /><textarea
+        style="width: 300px; height: 100px; background-color: gray"
+        disabled
+      ></textarea>
     </div>
     <div class="d-flex mt-3">
       <button>บันทึกร่าง</button>
       <button>ส่งข้อมูล</button>
-
     </div>
   </div>
 </div>

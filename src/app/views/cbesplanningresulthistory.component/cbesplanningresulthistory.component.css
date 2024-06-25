@@ -84,7 +84,6 @@ th,
 td {
   border: 1px solid rgb(0, 0, 0);
   text-align: center; /* จัดตรงกลางในแนวนอน */
-  vertical-align: middle; /* จัดตรงกลางในแนวตั้ง */
   padding: 2px; /* เพิ่มระยะห่างระหว่างขอบและเนื้อหา */
 }
 
@@ -98,5 +97,9 @@ th {
 
 .level1 {
   background:#4b4b4b8c
+}
+
+.tableindicators{
+  border: white;
 }
 

@@ -31,9 +31,11 @@ import { CBEsPlanningDraft } from './views/cbesplanningdraft.component/cbesplann
 import { CBEsPlanningHistoryListComponent } from './views/cbesplanninghistorylist.component/cbesplanninghistorylist.component';
 import { CBEsPlanningTargetHistory } from './views/cbesplanningtargethistory.component/cbesplanningtargethistory.component';
 import { CBEsPlanningResultHistory } from './views/cbesplanningresulthistory.component/cbesplanningresulthistory.component';
+import { CBEsPlanningReport } from './views/cbesplanningreport.component/cbesplanningreport.component';
+import { CBEsPlanningReportDraft } from './views/cbesplanningreportdraft.component/cbesplanningreportdraft.component';
+import { CBEsPlanningBinComponent } from './views/cbesplanningbin.component/cbesplanningbin.component';
 
 export const routes: Routes = [
-
   {path:'home',component: HomeComponents},
   {path:'loading',component: LoadingComponent},
   {path:'login',component: LoginComponent},
@@ -65,7 +67,12 @@ export const routes: Routes = [
   {path:'CBEsPlanning/history/list',component:CBEsPlanningHistoryListComponent},
   {path:'CBEsPlanning/history/target/:id',component:CBEsPlanningTargetHistory},
   {path:'CBEsPlanning/history/result/:id',component:CBEsPlanningResultHistory},
-  {path:'CBEsPlanning/bin/:id',component:CBEsBinListComponent},
+  {path:'CBEsPlanning/bin/:id',component:CBEsPlanningBinComponent},
+  {path:'CBEsPlanning/report/:id',component:CBEsPlanningReport},
+  {path:'CBEsPlanning/report/draft/:id',component:CBEsPlanningReportDraft},
+
+
+
 
 
 

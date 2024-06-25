@@ -376,3 +376,10 @@ box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
 border: none;
 transition: all 0.2s ease-in-out;
 }
+/* styles.css or your component's CSS file */
+.active-button {
+  background-color: rgb(204, 0, 255);
+  color: white;
+  font-weight: bold;
+  width: 200px;
+}

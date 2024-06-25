@@ -9,7 +9,7 @@ button{
 }
 
 .card{
-  width: auto;
+  width: 95vw;
   height: auto;
   margin: auto;
 }
@@ -27,15 +27,15 @@ button{
   border-radius: 5px;
   background: white;
   margin-bottom: 15px;
+  padding: 0 20px;
+  font-weight: 300;
   font-size: 14px;
   color: #4B4B4B;
   cursor: pointer;
 
 }
 
-input{
-  width: 44px;
-}
+
 
 
 .feed-form select {
@@ -74,16 +74,15 @@ small {
 }
 table {
   border-collapse: collapse;
-  width:300px;
+  width: fit-content;
   text-align: center;
 }
-
-
 
 th,
 td {
   border: 1px solid rgb(0, 0, 0);
   text-align: center; /* จัดตรงกลางในแนวนอน */
+  vertical-align: middle; /* จัดตรงกลางในแนวตั้ง */
   padding: 2px; /* เพิ่มระยะห่างระหว่างขอบและเนื้อหา */
 }
 
