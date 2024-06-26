@@ -1,31 +1,43 @@
-<div class="container">
-  <h1>กำหนดสิทธิ์การใช้งานระบบ</h1>
+<div *ngIf="datafromapi == true; else LoadSuccess">
 
-  <div class="text-end">
-    <button>เพิ่ม</button>
-    <button>กล่องขยะ</button>
-  </div>
+  <div class="container p-5">
+    <h1>กำหนดสิทธิ์การใช้งานระบบ</h1>
+    <div class="text-end">
+      <button>เพิ่ม</button>
+      <button>กล่องขยะ</button>
+    </div>
 
-  <div>
-    <table class="table mt-3 border border-dark border-2 text-center">
-      <thead>
-        <tr>
-          <th>วันที่ปรับปรุง</th>
-          <th>ชื่อบทบาท</th>
-          <th>จัดการ</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>03/06/2564 12:12</th>
-          <th>ผู้ดูแลระบบ</th>
-          <th>
-            <button>กลุ่มผู้ใช้งาน</button>
-            <button>แก้ไข</button>
-            <button>ลบ</button>
-          </th>
-        </tr>
-      </tbody>
-    </table>
+    <div>
+      <table class="table mt-3 border border-dark border-2 text-center">
+        <thead>
+          <tr>
+            <th>วันที่ปรับปรุง</th>
+            <th>ชื่อบทบาท</th>
+            <th>จัดการ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="Allroles.length == 0">
+            <tr>
+              <th colspan="3"><p class="text-danger" style="font-size: large; height: 100px;">ไม่มีข้อมูล</p></th>
+            </tr>
+          </ng-container>
+
+          <tr *ngFor="let data of Allroles">
+            <td>{{ data.updateDate }}</td>
+            <td>{{ data.name }}</td>
+            <td>
+              <button>กลุ่มผู้ใช้งาน</button>
+              <button>แก้ไข</button>
+              <button (click)="onDelete(data.id)">ลบ</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
+
+<ng-template #LoadSuccess>
+  <loading-page></loading-page>
+</ng-template>

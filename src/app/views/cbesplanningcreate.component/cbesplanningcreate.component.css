@@ -9,7 +9,7 @@ button{
 }
 
 .card{
-  width: 95vw;
+  width: auto;
   height: auto;
   margin: auto;
 }
@@ -27,15 +27,15 @@ button{
   border-radius: 5px;
   background: white;
   margin-bottom: 15px;
-  padding: 0 20px;
-  font-weight: 300;
   font-size: 14px;
   color: #4B4B4B;
   cursor: pointer;
 
 }
 
-
+input{
+  width: 44px;
+}
 
 
 .feed-form select {
@@ -74,9 +74,11 @@ small {
 }
 table {
   border-collapse: collapse;
-  width: 70vw;
+  width:300px;
   text-align: center;
 }
+
+
 
 th,
 td {
@@ -91,6 +93,7 @@ th {
   color: rgb(0, 0, 0);
   size: 10px;
   background-color: white;
+  font-size: small;
 }
 
 .level1 {
