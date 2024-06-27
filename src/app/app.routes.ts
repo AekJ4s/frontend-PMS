@@ -6,7 +6,7 @@ import { RegisterComponent } from './views/registercomponent/register.component'
 import { NotfoundComponent } from './views/notfound/notfound.component';
 import { RoleListComponent } from './views/rolelistcomponent/rolelist.component';
 import { RoleCreateComponent } from './views/rolecreatecomponent/rolecreate.component';
-import { RoleCreateUserComponent } from './views/roleusercreate.component/roleusercreate.component';
+import { RoleUserComponent } from './views/roleuser.component/roleuser.component';
 import { RoleBinListComponent } from './views/rolebinlist.component/rolebinlist.component';
 import { CBEsListComponent } from './views/cbeslist.component/cbeslist.component';
 import { CBEsCreateComponent } from './views/cbescreate.component/cbescreate.component';
@@ -34,6 +34,7 @@ import { CBEsPlanningResultHistory } from './views/cbesplanningresulthistory.com
 import { CBEsPlanningReport } from './views/cbesplanningreport.component/cbesplanningreport.component';
 import { CBEsPlanningReportDraft } from './views/cbesplanningreportdraft.component/cbesplanningreportdraft.component';
 import { CBEsPlanningBinComponent } from './views/cbesplanningbin.component/cbesplanningbin.component';
+import { RoleEditComponent } from './views/roleeditcomponent/roleeditcomponent.component';
 
 export const routes: Routes = [
   {path:'home',component: HomeComponents},
@@ -42,7 +43,8 @@ export const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'role/list',component:RoleListComponent},
   {path:'role/create',component:RoleCreateComponent},
-  {path:'role/users/create',component:RoleCreateUserComponent},
+  {path:'role/edit',component:RoleEditComponent},
+  {path:'role/users/:id',component:RoleUserComponent},
   {path:'role/bin',component:RoleBinListComponent},
   {path:'CBEs/list',component:CBEsListComponent},
   {path:'CBEs/create',component:CBEsCreateComponent},
@@ -58,6 +60,7 @@ export const routes: Routes = [
   {path:'CBEsTargetResult/result',component:CBEsResultCreateComponent},
   {path:'CBEsTargetResult/history/list',component:CBEsTargetResultHistoryListComponent},
   {path:'CBEsTargetResult/targethistory/:id',component:CBEsTargetHistoryByID},
+  {path:'CBEsTargetResult/resulthistory/:id',component:CBEsTargetHistoryByID},
   {path:'CBEsPlanning/manageplanning',component:CBEsManagePlanning},
   {path:'CBEsPlanning/list',component:CBEsPlanningList},
   {path:'CBEsPlanning/create',component:CBEsPlanningCreate},

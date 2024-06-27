@@ -1,13 +1,15 @@
 import { Injectable } from "@angular/core";
+import CBEsRole from "../models/CBEsRole";
 import { HttpClient } from "@angular/common/http";
 import Response from "../models/response";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class CBEsService{
-  private readonly baseURL = 'http://192.168.1.14:8000/api/CBEs'
+export class CBEsUserService{
+  private readonly baseURL = 'http://192.168.1.14:8000/api/CBEsUser'
 
   constructor(private httpClient: HttpClient) {}
     public SelecetOption = ""
@@ -17,7 +19,5 @@ export class CBEsService{
     // const options = { headers: headers };
     return this.httpClient.get<Response>(`${this.baseURL}`);
   }
-  // GetHistoryById(){
-  //   return this.httpClient.get<Response>(`${this.baseURL}`);
-  // }
+
 }

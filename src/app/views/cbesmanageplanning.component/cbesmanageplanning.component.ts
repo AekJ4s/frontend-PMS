@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { CBEsService } from '../../services/CBEs.service';
+import CBEs from '../../models/CBEs';
 @Component({
   selector: 'cbesmanageplanning-page',
   standalone: true,
@@ -11,11 +13,20 @@ import {MatSidenavModule} from '@angular/material/sidenav';
   imports: [CommonModule, RouterModule, FormsModule],
   providers: [DatePipe],
 })
-export class CBEsManagePlanning {
-
-  constructor() {}
+export class CBEsManagePlanning implements OnInit{
+  AllCBEs: CBEs[] = [];
+  datafromapi = false;
+  constructor(
+    private cbesService : CBEsService
+  ) {}
 
   onSubmit(){
     console.log("login button work !")
   }
+
+  ngOnInit(): void {
+    this.cbesService.GetAll
+  }
+
+
 }

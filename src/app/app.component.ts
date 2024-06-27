@@ -10,7 +10,7 @@ import { RegisterComponent } from './views/registercomponent/register.component'
 import { NotfoundComponent } from './views/notfound/notfound.component';
 import { RoleCreateComponent } from './views/rolecreatecomponent/rolecreate.component';
 import { RoleListComponent } from './views/rolelistcomponent/rolelist.component';
-import { RoleCreateUserComponent } from './views/roleusercreate.component/roleusercreate.component';
+import { RoleUserComponent } from './views/roleuser.component/roleuser.component';
 import { RoleBinListComponent } from './views/rolebinlist.component/rolebinlist.component';
 import { CBEsListComponent } from './views/cbeslist.component/cbeslist.component';
 import { CBEsCreateComponent } from './views/cbescreate.component/cbescreate.component';
@@ -37,12 +37,14 @@ import { CBEsPlanningResultHistory } from './views/cbesplanningresulthistory.com
 import { CBEsPlanningBinComponent } from './views/cbesplanningbin.component/cbesplanningbin.component';
 import { CBEsPlanningReport } from './views/cbesplanningreport.component/cbesplanningreport.component';
 import { CBEsPlanningReportDraft } from './views/cbesplanningreportdraft.component/cbesplanningreportdraft.component';
+import { RoleEditComponent } from './views/roleeditcomponent/roleeditcomponent.component';
 @Component({
   selector: 'app-root',
   standalone:true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [
+    RoleEditComponent,
     CBEsPlanningReportDraft,
     CBEsPlanningReport,
     CBEsPlanningBinComponent,
@@ -69,7 +71,7 @@ import { CBEsPlanningReportDraft } from './views/cbesplanningreportdraft.compone
     CBEsCreateComponent,
     CBEsListComponent,
     RoleBinListComponent,
-    RoleCreateUserComponent,
+    RoleUserComponent,
     RoleListComponent,
     RoleCreateComponent,
     NotfoundComponent,

@@ -4,14 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
 @Component({
-  selector: 'roleusercreate-page',
+  selector: 'roleeditcomponent-page',
   standalone: true,
-  templateUrl: './roleusercreate.component.html',
-  styleUrls: ['./roleusercreate.component.css'],
+  templateUrl: './roleeditcomponent.component.html',
+  styleUrls: ['./roleeditcomponent.component.css'],
   imports: [CommonModule, RouterModule, FormsModule],
   providers: [DatePipe],
 })
-export class RoleCreateUserComponent {
+export class RoleEditComponent {
 
   constructor() {}
 

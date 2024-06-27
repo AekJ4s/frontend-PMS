@@ -378,7 +378,7 @@ transition: all 0.2s ease-in-out;
 }
 /* styles.css or your component's CSS file */
 .active-button {
-  background-color: rgb(204, 0, 255);
+  background-color: rgb(0, 174, 255);
   color: white;
   font-weight: bold;
   width: 200px;

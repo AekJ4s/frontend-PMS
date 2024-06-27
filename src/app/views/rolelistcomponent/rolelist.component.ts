@@ -22,6 +22,7 @@ export class RoleListComponent implements OnInit{
   constructor(
     private roleService : CBEsRoleService,
     private dateformatService : DateFormatService,
+    private router: Router
   ) {  }
 
   ngOnInit(): void {
@@ -48,17 +49,20 @@ export class RoleListComponent implements OnInit{
     })
 
   }
-  onEdit(){
-    console.log("onEdit button work ! ")
+  onEdit(id : number){
+    console.log("onEdit button work ! ",id)
   }
-  onUser(){
-    console.log("onUser button work ! ")
+  onUser(id : number){
+    console.log("onUser button work ! ",id)
+    this.router.navigate(['/role/users/',id]);
   }
   onCreate(){
     console.log("onCreate button work ! ")
+    this.router.navigate(['/role/create']);
   }
   onBinbox(){
     console.log("onBinbox button work ! ")
+    this.router.navigate(['/role/bin']);
   }
 
 }

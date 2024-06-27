@@ -31,4 +31,7 @@ export class CBEsRoleService{
   LastDelete(id : number){
     return this.httpClient.delete<Response>(`${this.baseURL}/bin/LastDelete/${id}`);
   }
+  GetRoleWithUser(id:number){
+    return this.httpClient.get<Response>(`${this.baseURL}/${id}`);
+  }
 }
