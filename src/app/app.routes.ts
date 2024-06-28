@@ -35,10 +35,12 @@ import { CBEsPlanningReport } from './views/cbesplanningreport.component/cbespla
 import { CBEsPlanningReportDraft } from './views/cbesplanningreportdraft.component/cbesplanningreportdraft.component';
 import { CBEsPlanningBinComponent } from './views/cbesplanningbin.component/cbesplanningbin.component';
 import { RoleEditComponent } from './views/roleeditcomponent/roleeditcomponent.component';
+import { NotHaveDataComponent } from './views/nothavedata.component/nothavedata.component';
 
 export const routes: Routes = [
   {path:'home',component: HomeComponents},
   {path:'loading',component: LoadingComponent},
+  {path:'nothavedata/:id',component: NotHaveDataComponent},
   {path:'login',component: LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'role/list',component:RoleListComponent},

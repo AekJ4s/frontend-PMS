@@ -38,12 +38,14 @@ import { CBEsPlanningBinComponent } from './views/cbesplanningbin.component/cbes
 import { CBEsPlanningReport } from './views/cbesplanningreport.component/cbesplanningreport.component';
 import { CBEsPlanningReportDraft } from './views/cbesplanningreportdraft.component/cbesplanningreportdraft.component';
 import { RoleEditComponent } from './views/roleeditcomponent/roleeditcomponent.component';
+import { NotHaveDataComponent } from './views/nothavedata.component/nothavedata.component';
 @Component({
   selector: 'app-root',
   standalone:true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   imports: [
+    NotHaveDataComponent,
     RoleEditComponent,
     CBEsPlanningReportDraft,
     CBEsPlanningReport,

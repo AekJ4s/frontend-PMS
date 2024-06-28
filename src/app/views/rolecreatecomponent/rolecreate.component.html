@@ -1,32 +1,31 @@
-<div class="container">
-<head>
-    <title>ฟอร์มบทบาทและสิทธิ์</title>
-</head>
-<body>
-    <h2>ฟอร์มบทบาทและสิทธิ์</h2>
-    <form>
+<div *ngIf="datafromapi == true; else LoadSuccess">
+  <div class="container">
+    <head>
+      <title>ฟอร์มบทบาทและสิทธิ์</title>
+    </head>
+    <body>
+      <h2>ฟอร์มบทบาทและสิทธิ์</h2>
+      <form>
         <div>
-            <label for="role">บทบาท:</label>
-            <input type="text" id="role" name="role">
+          <label for="role">บทบาท :</label>
+          <input class="ms-2" type="text" id="role" name="role" />
         </div>
-        <div>
-            <label for="privileges">สิทธิ์:</label><br>
-            <input type="checkbox" id="privilege1" name="privilege1" value="privilege1">
-            <label for="privilege1">กำหนดสิทธิ์การใช้งานระบบ และกลุ่มผู้ใช้งาน</label><br>
-            <input type="checkbox" id="privilege2" name="privilege2" value="privilege2">
-            <label for="privilege2">ประวัติการใช้งาน</label><br>
-            <input type="checkbox" id="privilege3" name="privilege3" value="privilege3">
-            <label for="privilege3">จัดการหลักเกณฑ์ CBEs</label><br>
-            <input type="checkbox" id="privilege4" name="privilege4" value="privilege3">
-            <label for="privilege4">จัดการแผนแม่บท</label><br>
-            <input type="checkbox" id="privilege5" name="privilege5" value="privilege3">
-            <label for="privilege5">เป้าตัวชี้วัด-ผลตามตัวชี้วัดที่สำคัญขององค์กร</label><br>
-            <input type="checkbox" id="privilege6" name="privilege6" value="privilege3">
-            <label for="privilege6">จัดการโครงการ</label><br>
-            <input type="checkbox" id="privilege7" name="privilege7" value="privilege3">
-            <label for="privilege7">รายงานผลการดำเนินงานที่ได้รับ</label><br>
+        <div class="card">
+          <div
+            *ngFor="let data of AllPermission"
+            class="mt-3 d-flex ms-5 p-1 mb-2"
+          >
+            <input type="checkbox" name="privilege1" value="privilege1" />
+            <label class="ms-2" for="privileges">{{ data.name }}</label
+            ><br />
+          </div>
         </div>
-        <button type="submit">บันทึก</button>
-    </form>
-</body>
-<div>
+        <button type="submit" class="mt-2 buttonGreen">บันทึก</button>
+      </form>
+    </body>
+    <div></div>
+  </div>
+</div>
+<ng-template #LoadSuccess>
+  <loading-page></loading-page>
+</ng-template>

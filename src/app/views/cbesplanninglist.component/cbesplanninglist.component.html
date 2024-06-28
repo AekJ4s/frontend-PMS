@@ -1,47 +1,114 @@
-<div class="container">
+
+<div *ngIf="datafromapi == true; else LoadSuccess">
+<div *ngIf="Allplanning.length != 0; else NotHaveData">
   <div>
-    <h2>แผนดำเนินงานตามหลักเกณฑ์ CBEs</h2>
-    <p>
-      หัวข้อ : การกํากับดูแลที่ดีและการนําองค์กร (Corporate Governance &
-      Leadership : CG & Leadership)
-    </p>
-    <label>ปีงบประมาณ : </label>
-    <select class="ms-2">
-      <option>2565</option>
-      <option>2566</option>
-      <option>2567</option>
-    </select>
-    <br />
-    <br />
-    <label for="searchbar">ชื่อแผน :</label>
-    <input name="searchbar" type="text" />
-    <button class="bg-warning text-dark">ค้นหา</button>
-    <button class="bg-success text-white">เพิ่ม</button>
-    <button class="bg-danger text-white">กล่องขยะ</button>
-  </div>
-  <div class="mt-3">
-    <table>
-      <thead>
-        <tr>
-          <th>วันที่แก้ไข</th>
-          <th>ชื่อแผน</th>
-          <th colspan="6">จัดการ</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>18/08/2564</td>
-          <td>การวางแผนเชิงยุทธศาสตร์ (Strategic Planning : SP)</td>
-          <td colspan="6">
-            <button>แก้ไข</button>
-            <button>แผน</button>
-            <button>ผล</button>
-            <button>รายงาน</button>
-            <button>ประวัติการแก้ไข</button>
-            <button>ลบ</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="container">
+      <h2>จัดการหลักเกณฑ์ CBEs</h2>
+      <div class="mt-3 d-flex">
+        <div class="group" style="vertical-align: center">
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <g>
+              <path
+                d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+              ></path>
+            </g>
+          </svg>
+          <input
+            [(ngModel)]="searchQuery"
+            name="searchbar"
+            placeholder="คำค้นหา"
+            type="search"
+            class="input"
+          />
+        </div>
+        <button class="ms-2" (click)="onSearch()">ค้นหา</button>
+        <button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-trash3"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"
+            />
+          </svg>
+          กล่องขยะ
+        </button>
+        <button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-plus-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+            />
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+            />
+          </svg>
+          เพิ่ม
+        </button>
+      </div>
+      <table class="mt-3">
+        <thead>
+          <tr>
+            <th style="width: 600px">วันที่แก้ไข</th>
+            <th style="width: 100px">ชื่อแผน</th>
+            <th style="width: 400px">จัดการ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="usesearch == true">
+            <tr *ngFor="let data of filteredPlanning">
+              <td class="text-start">{{ data.updateDate }}</td>
+              <td>{{ data.Name }}</td>
+              <td>
+                <div class="d-flex">
+                  <button (click)="onEdit(data.id)">แก้ไข</button>
+                  <button>แผน</button>
+                  <button>ผล</button>
+                  <button>รายงาน</button>
+                  <button>ประวัติการแก้ไข</button>
+                  <button>ลบ</button>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="usesearch == false">
+            <tr *ngFor="let data of Allplanning">
+              <td class="text-start">{{ data.updateDate }}</td>
+              <td>{{ data.Name }}</td>
+              <td>
+                <div class="d-flex">
+                  <button (click)="onEdit(data.id)">แก้ไข</button>
+                  <button>แผน</button>
+                  <button>ผล</button>
+                  <button>รายงาน</button>
+                  <button>ประวัติการแก้ไข</button>
+                  <button>ลบ</button>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
+</div>
+
+<ng-template #NotHaveData>
+  <loading-page></loading-page>
+</ng-template>
+
+
+<ng-template #LoadSuccess>
+  <loading-page></loading-page>
+</ng-template>

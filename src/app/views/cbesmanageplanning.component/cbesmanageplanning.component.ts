@@ -24,6 +24,9 @@ export class CBEsManagePlanning implements OnInit{
     console.log("login button work !")
   }
 
+  onPlanning(id:number){
+    console.log("ไปดูแพลนนิ่งทั้งหมดในโครงการรหัส",id)
+  }
   ngOnInit(): void {
     this.cbesService.GetAll
   }

@@ -36,7 +36,8 @@ export class RoleListComponent implements OnInit{
 
         })
         this.datafromapi = true;
-        console.log("this ALL DATA",result)
+        console.log(" ✉ DATA FATCH API : ",result.data)
+        console.log(" ✤ this.AllPermission : ",this.Allroles)
       }
     )
   }
