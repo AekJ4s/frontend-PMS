@@ -45,6 +45,7 @@ export const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'role/list',component:RoleListComponent},
   {path:'role/create',component:RoleCreateComponent},
+  {path:'role/editer/:id',component:RoleCreateComponent},
   {path:'role/edit',component:RoleEditComponent},
   {path:'role/users/:id',component:RoleUserComponent},
   {path:'role/bin',component:RoleBinListComponent},

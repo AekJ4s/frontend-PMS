@@ -1,8 +1,8 @@
 <div class="container">
   <form class="form" action="">
       <p class="title">Login</p>
-      <input placeholder="Username" class="username input" type="text">
-      <input placeholder="Password" class="password input" type="password">
+      <input placeholder="Username" class="username input" type="text" [(ngModel)]="loginby.username" name="username">
+      <input placeholder="Password" class="password input" type="password" [(ngModel)]="loginby.password" name="password">
       <button class="btn" type="submit" (click)="onSubmit()">Login</button>
   </form>
 </div>

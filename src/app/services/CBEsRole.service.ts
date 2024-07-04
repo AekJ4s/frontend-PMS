@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import CBEsRole from "../models/CBEsRole";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import Response from "../models/response";
 import { Observable } from "rxjs";
 
@@ -34,4 +34,21 @@ export class CBEsRoleService{
   GetRoleWithUser(id:number){
     return this.httpClient.get<Response>(`${this.baseURL}/${id}`);
   }
+  EditRoleWithUser(role: { id: number, users: { id: number, isDeleted: boolean }[] }): Observable<any> {
+    const token = localStorage.getItem('Token'); // Replace 'token' with your actual token key in LocalStorage
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${token}`); // Use Bearer token
+
+    return this.httpClient.put<Response>(`${this.baseURL}/RoleWithUsers`, role, { headers });
+  }
+
+  CreateRoleWithPermission(role: { name : string , permissions: { id : number}[] , createBy: number , updateBy: number}){
+    return this.httpClient.post<Response>(`${this.baseURL}`, role )
+  }
+
+  RoleGetByID(role: { id:number, name : string , permissions: { id : number}[] , createBy: number , updateBy: number}){
+    return this.httpClient.put<Response>(`${this.baseURL}`,role)
+  }
+
 }

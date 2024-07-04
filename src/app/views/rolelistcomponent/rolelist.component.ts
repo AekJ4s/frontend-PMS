@@ -51,7 +51,7 @@ export class RoleListComponent implements OnInit{
 
   }
   onEdit(id : number){
-    console.log("onEdit button work ! ",id)
+    this.router.navigate(['/role/editer/',id]);
   }
   onUser(id : number){
     console.log("onUser button work ! ",id)

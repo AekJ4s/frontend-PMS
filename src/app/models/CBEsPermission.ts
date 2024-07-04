@@ -1,4 +1,4 @@
-import CBEsRole from "./CBEsRole";
+import CBEsRoleWithPermission from "./CBEsRoleWithPermission";
 import CBEsUser from "./CBEsUser";
 
 export default class CBEsPermission{
@@ -6,7 +6,10 @@ export default class CBEsPermission{
   name = ""
   createDate = new Date()
   updateDate = new Date()
-  isDeleted = false
-  createBy = 0;
-  updateBy = 0;
+  isDeleted = false;
+  createBy = 0
+  updateBy = 0
+  cbesRoleWithPermissions: CBEsRoleWithPermission[] = [];
+  createByNavigation = new CBEsUser
+  updateByNavigation = new CBEsUser
 }

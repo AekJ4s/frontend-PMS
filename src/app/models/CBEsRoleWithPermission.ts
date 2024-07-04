@@ -7,6 +7,10 @@ export default class CBEsRoleWithPermission{
   createDate = new Date();
   updateDate = new Date();
   isDeleted = false;
-  role_id = 0;
-  permission_id = 0;
+  roleId = 0;
+  permissionId = 0;
+  createBy = 0;
+  updateBy = 0;
+  cbesPermission = new CBEsPermission;
+  cbesRole = new CBEsRole;
 }
