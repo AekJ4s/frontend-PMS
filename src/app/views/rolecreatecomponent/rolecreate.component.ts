@@ -18,85 +18,75 @@ import CBEsRoleWithPermission from '../../models/CBEsRoleWithPermission';
   providers: [DatePipe],
 })
 export class RoleCreateComponent implements OnInit {
-  id : number | null = 0;
-  AllPermission: CBEsPermission[] = [];
+  id: number = 0;
+  DataofRole = new CBEsRole();
   datafromapi = false;
-  roleName: string = '';
-  permission: { id: number; name: string; IsCheck: boolean }[] = [];
-  roleData = {
-    name: this.roleName,
-    permissions: [] as { id: number }[],
-    createBy: 1,
-    updateBy: 1,
-  };
-
-  role = new CBEsRole()
-
-
+  allpermission: CBEsPermission[] = [];
+  newRWP : CBEsRoleWithPermission[] = []
   constructor(
     private roleService: CBEsRoleService,
     private permissionService: CBEsPermissionService,
     private router: Router,
-    private route : ActivatedRoute
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-     // รับค่าจาก parameter
-     this.route.paramMap.subscribe(params => {
+    // รับค่าจาก parameter
+    this.route.paramMap.subscribe((params) => {
       const idParam = params.get('id');
-      this.id = idParam !== null ? +idParam : null; // Convert string to number
-      this.datafromapi = true
+      this.id = idParam !== null ? +idParam : 0; // Convert string to number
+      console.log('id receive : ', this.id);
     });
-    if(this.id == null){
-
-    }
-    this.permissionService.GetAll().subscribe((result: Response) => {
-      this.AllPermission = result.data.map((data: any) => {
-        console.log("DATA : ",data)
-        this.datafromapi = true;
-        this.permission.push({ id: data.id, name: data.name, IsCheck: false });
-        console.log("data.name : ",data.name)
-        const a = data.CBEsPermission
-        this.role.cbesRoleWithPermissions.push(a)
-        return {
-          ...data,
-        };
+    if (this.id != 0) {
+      this.roleService.RoleGetByID(this.id).subscribe((result: Response) => {
+        console.log('DataofRole : ', result.data);
+        this.DataofRole = result.data;
+        console.log(this.DataofRole.cbesRoleWithPermissions);
       });
-      console.log(' ✉ DATA FATCH API : ', result.data);
-      console.log(' ✤ this.AllPermission : ', this.AllPermission);
-    });
-
+      this.datafromapi = true;
+    } else {
+      this.datafromapi = true;
+      this.DataofRole.name = "บทบาทใหม่"
+      this.permissionService.GetAll().subscribe((result: Response) => {
+        this.allpermission = result.data;
+        console.log("allpermission :",this.allpermission)
+        this.allpermission.forEach(element => {
+        console.log(element.id)
+        this.DataofRole.cbesRoleWithPermissions.push(new CBEsRoleWithPermission)
+        this.DataofRole.cbesRoleWithPermissions[element.id-1].permission = {
+          ...element,
+        }
+        this.DataofRole.cbesRoleWithPermissions[element.id-1]={
+          ...this.DataofRole.cbesRoleWithPermissions[element.id-1],
+          roleId:0,
+          permissionId:element.id
+        }
+        });
+        console.log(this.DataofRole);
+      });
+    }
   }
-
-  Status(i: number) {
-    console.log(this.permission);
-  }
-
   onSubmit() {
-    console.log('Submit button work!');
+    console.log(this.DataofRole)
 
-    const selectedPermissions = this.permission
-      .map((perm, index) =>
-        perm.IsCheck ? { id: this.AllPermission[index].id } : null
-      )
-      .filter((perm) => perm !== null);
-
-
-    this.permission.forEach((data) => {
-      if (data.IsCheck == true) {
-        this.roleData.permissions.push({ id: data.id });
-      }
-    });
-    console.log('Data Send : ', this.roleData);
-
-    this.roleService.CreateRoleWithPermission(this.roleData).subscribe(
-      (result) => {
-        alert(result.message);
-        this.router.navigate(['role/list']);
-      },
-      (error: { error: Response }) => {
-        alert(error.error.message);
-      }
-    );
+    if(this.id != 0){
+      this.roleService.EditRole(this.DataofRole).subscribe((result:Response)=>{
+        try{
+          alert(result.message)
+          this.router.navigate(['/role/list']);
+        }catch{
+          alert(result.message)
+          this.router.navigate(['/role/list']);
+        }
+      })
+    }else{
+      this.roleService.CreateRole(this.DataofRole).subscribe((result:Response)=>{
+        try{
+          alert(result.message)
+        }catch{
+          alert(result.message)
+        }
+      })
+    }
   }
 }

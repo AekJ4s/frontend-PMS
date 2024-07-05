@@ -6,18 +6,18 @@
     <body>
       <h2>ฟอร์มบทบาทและสิทธิ์</h2>
       <form (ngSubmit)="onSubmit()" ngNativeValidate>
-        <div>
+        <div >
           <label for="role">บทบาท :</label>
-          <input class="ms-2" type="text" id="role" name="role"  [(ngModel)]="role.name" required  />
+          <input class="ms-2" type="text" [(ngModel)]="DataofRole.name" [name]="DataofRole.name" required  />
         </div>
         <div class="card">
           <div
-            *ngFor="let data of permission ;let i = index"
             class="mt-3 d-flex ms-5 p-1 mb-2"
+            *ngFor="let item of DataofRole.cbesRoleWithPermissions;let i = index"
           >
-            <input type="checkbox" name="privilege1" value="privilege1" [(ngModel)]="data.IsCheck" (change)="Status(i)"/>
-            <label class="ms-2" for="privileges">{{ data.name }}</label
-            ><br />
+            <input type="checkbox" [name]="item.permission.name[i]" [(ngModel)]="item.isChecked" />
+            <label class="ms-2" for="privileges">{{item.permission.name}}</label
+            ><br/>
           </div>
         </div>
         <button type="submit" class="mt-2 buttonGreen">บันทึก</button>
@@ -26,6 +26,9 @@
     <div></div>
   </div>
 </div>
+
+
 <ng-template #LoadSuccess>
   <loading-page></loading-page>
 </ng-template>
+

@@ -5,8 +5,8 @@ import CBEsUserWithRole from "./CBEsUserWithRole";
 export default class CBEsRole{
   id = 0
   name = ""
-  createDate = new Date()
-  updateDate = new Date()
+  createDate:Date|null = new Date()
+  updateDate:Date|null = new Date()
   isDeleted = false;
   isLastDelete = false;
   createBy = 0
