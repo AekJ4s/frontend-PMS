@@ -41,12 +41,11 @@ export class RoleCreateComponent implements OnInit {
       this.roleService.RoleGetByID(this.id).subscribe((result: Response) => {
         console.log('DataofRole : ', result.data);
         this.DataofRole = result.data;
-        console.log(this.DataofRole.cbesRoleWithPermissions);
+        console.log("DataofRole.cbesRoleWithPermissions : ",this.DataofRole.cbesRoleWithPermissions);
       });
       this.datafromapi = true;
     } else {
       this.datafromapi = true;
-      this.DataofRole.name = "บทบาทใหม่"
       this.permissionService.GetAll().subscribe((result: Response) => {
         this.allpermission = result.data;
         console.log("allpermission :",this.allpermission)
@@ -70,6 +69,7 @@ export class RoleCreateComponent implements OnInit {
     console.log(this.DataofRole)
 
     if(this.id != 0){
+      console.log("senddata : " ,this.DataofRole)
       this.roleService.EditRole(this.DataofRole).subscribe((result:Response)=>{
         try{
           alert(result.message)
@@ -81,10 +81,13 @@ export class RoleCreateComponent implements OnInit {
       })
     }else{
       this.roleService.CreateRole(this.DataofRole).subscribe((result:Response)=>{
+      console.log("senddata : " ,this.DataofRole)
         try{
           alert(result.message)
+          this.router.navigate(['/role/list']);
         }catch{
           alert(result.message)
+          this.router.navigate(['/role/list']);
         }
       })
     }

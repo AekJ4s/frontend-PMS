@@ -14,7 +14,7 @@ import CBEsProcessTargetLog from "./CbesProcessTargetLog "
 import MaturityWithSupervisor from "./MaturityWithSupervisor"
 import CBEsReportForm from "./ReportForm"
 
-export default class CBEsUser{
+export default class CBEsUsers{
   id = 0
   username = ""
   password = ""
@@ -52,11 +52,11 @@ export default class CBEsUser{
   cbesWithSubSupervisorUpdateByNavigations: CBEsWithSubSupervisor[] = [];
   cbeswithSupervisorCreateByNavigations: CBEswithSupervisor[] = [];
   cbeswithSupervisorUpdateByNavigations: CBEswithSupervisor[] = [];
-  createByNavigation:CBEsUser | null = null
-  inverseCreateByNavigation: CBEsUser[] = [];
-  inverseUpdateByNavigation: CBEsUser[] = [];
+  createByNavigation:CBEsUsers | null = null
+  inverseCreateByNavigation: CBEsUsers[] = [];
+  inverseUpdateByNavigation: CBEsUsers[] = [];
   maturityWithSupervisorCreateByNavigations: MaturityWithSupervisor[] = [];
   maturityWithSupervisorUpdateByNavigations: MaturityWithSupervisor[] = [];
   position = new CBEsPosition
-  updateByNavigation:CBEsUser | null = null
+  updateByNavigation:CBEsUsers | null = null
 }

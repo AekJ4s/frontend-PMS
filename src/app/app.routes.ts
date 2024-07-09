@@ -34,7 +34,6 @@ import { CBEsPlanningResultHistory } from './views/cbesplanningresulthistory.com
 import { CBEsPlanningReport } from './views/cbesplanningreport.component/cbesplanningreport.component';
 import { CBEsPlanningReportDraft } from './views/cbesplanningreportdraft.component/cbesplanningreportdraft.component';
 import { CBEsPlanningBinComponent } from './views/cbesplanningbin.component/cbesplanningbin.component';
-import { RoleEditComponent } from './views/roleeditcomponent/roleeditcomponent.component';
 import { NotHaveDataComponent } from './views/nothavedata.component/nothavedata.component';
 
 export const routes: Routes = [
@@ -46,7 +45,6 @@ export const routes: Routes = [
   {path:'role/list',component:RoleListComponent},
   {path:'role/create',component:RoleCreateComponent},
   {path:'role/editer/:id',component:RoleCreateComponent},
-  {path:'role/edit',component:RoleEditComponent},
   {path:'role/users/:id',component:RoleUserComponent},
   {path:'role/bin',component:RoleBinListComponent},
   {path:'CBEs/list',component:CBEsListComponent},

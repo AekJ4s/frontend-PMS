@@ -4,7 +4,7 @@ import CBEsUserWithRole from "./CBEsUserWithRole";
 
 export default class CBEsRole{
   id = 0
-  name = ""
+  name = "บทบาทใหม่"
   createDate:Date|null = new Date()
   updateDate:Date|null = new Date()
   isDeleted = false;
@@ -12,7 +12,7 @@ export default class CBEsRole{
   createBy = 0
   updateBy = 0
   cbesRoleWithPermissions : CBEsRoleWithPermission[] = []
-  cbesUserWithRoles : CBEsUserWithRole[] = []
+  cbesUserWithRole : CBEsUserWithRole[] = []
   createByNavigation = new CBEsUser
   updateByNavigation = new CBEsUser
 }

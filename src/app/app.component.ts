@@ -37,7 +37,6 @@ import { CBEsPlanningResultHistory } from './views/cbesplanningresulthistory.com
 import { CBEsPlanningBinComponent } from './views/cbesplanningbin.component/cbesplanningbin.component';
 import { CBEsPlanningReport } from './views/cbesplanningreport.component/cbesplanningreport.component';
 import { CBEsPlanningReportDraft } from './views/cbesplanningreportdraft.component/cbesplanningreportdraft.component';
-import { RoleEditComponent } from './views/roleeditcomponent/roleeditcomponent.component';
 import { NotHaveDataComponent } from './views/nothavedata.component/nothavedata.component';
 @Component({
   selector: 'app-root',
@@ -46,7 +45,6 @@ import { NotHaveDataComponent } from './views/nothavedata.component/nothavedata.
   styleUrls: ['./app.component.css'],
   imports: [
     NotHaveDataComponent,
-    RoleEditComponent,
     CBEsPlanningReportDraft,
     CBEsPlanningReport,
     CBEsPlanningBinComponent,

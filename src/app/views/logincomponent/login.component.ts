@@ -37,8 +37,9 @@ export class LoginComponent {
         this.authService.Login(this.loginby);
         this.router.navigate(['CBEs/list']);
       },
-      (error: any) => {
-        console.error(error);
+      (error) => {
+        console.log(error)
+        alert(`${error.error.status} : ` + error.error.message)
         this.seterr=true;
       }
     );

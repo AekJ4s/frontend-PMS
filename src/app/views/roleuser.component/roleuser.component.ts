@@ -7,6 +7,8 @@ import CBEsUser from '../../models/CBEsUser';
 import { CBEsUserService } from '../../services/CBEsUser.service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { LoadingComponent } from '../loading/loading.component';
+import CBEsUserWithRole from '../../models/CBEsUserWithRole';
+import CBEsRole from '../../models/CBEsRole';
 
 @Component({
   selector: 'roleuser-page',
@@ -17,15 +19,13 @@ import { LoadingComponent } from '../loading/loading.component';
   providers: [DatePipe],
 })
 export class RoleUserComponent implements OnInit {
-  id: number | null = 0;
-  idUser: number | null = 1;
-  Alluser: CBEsUser[] = [];
-  AlluserWithThisRole: CBEsUser[] = [];
-  filteredUsers: CBEsUser[] = [];
+  id: number | null | undefined = 0;
   datafromapi = false;
-  selectedUserId: number | null = 1 ;
-
-
+  selectedUserId: number | string | undefined = 'เลือกผู้ใช้ที่จะเพิ่ม';
+  userData: CBEsUser[] = [];
+  RoleData = new CBEsRole();
+  userRole: CBEsUser[] = [];
+  filteredData: CBEsUser[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -35,91 +35,122 @@ export class RoleUserComponent implements OnInit {
 
   ngOnInit(): void {
     // รับค่าจาก parameter
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       const idParam = params.get('id');
-      this.id = idParam !== null ? +idParam : null; // Convert string to number
-      console.log(`Received id: ${this.id}`);
+      this.id = idParam !== null ? +idParam : null; // แปลงข้อความเป็นตัวเลข
+      console.log('☁ Data recived id  ▶ ', this.id);
     });
-
-    this.userService.GetAll().subscribe((result: Response) => {
-      this.Alluser = result.data.map((data: any) => ({
-        ...data,
-      }));
+    if (this.id != null && this.id != undefined) {
       this.datafromapi = true;
-      this.filterUsers();
-      console.log("this ALL users", this.Alluser);
-    });
+      this.roleService.RoleGetByID(this.id).subscribe((result: Response) => {
+        this.RoleData = result.data
+        console.log('☁ Data Role ▶ ', result.data);
+        this.userService.GetAll().subscribe((result: Response) => {
+          console.log('☁ Data All User ▶ ', result.data);
+          this.userData = result.data;
 
-    if (this.id != null) {
-      this.roleService.GetRoleWithUser(this.id).subscribe((result: Response) => {
-        if(result.data.isDeleted != true){
-          this.AlluserWithThisRole = result.data.users;
-          this.filterUsers();
-          console.log("data role with user : ", result.data.users);
+          // แยก userId จาก cbesUserWithRole
+          const userIdsWithRole = this.RoleData.cbesUserWithRole.map((userWithRole: any) => userWithRole.userId);
+
+           // กรอง userData
+           this.filteredData = this.userData.filter((user: any) => !userIdsWithRole.includes(user.id));
+           console.log('☁ Filtered Data ▶ ', this.filteredData);
+
+           if(this.filteredData.length > 0){
+            this.selectedUserId = this.filteredData[0].id
+           }else{
+            this.selectedUserId = " ไม่มียูเซอร์เหลืออยู่ "
+           }
+        });
+      });
+    }else{
+      console.log(`╰┈➤${this.id} is null or undefined`)
+      this.datafromapi = false
+    }
+  }
+
+  removeUser(id: number | string | undefined) {
+    if (id != undefined) {
+        console.log('╰┈➤ removeUser id receive', id);
+
+        // ค้นหาผู้ใช้ใน RoleData.cbesUserWithRole
+        const userIndexInRoleData = this.RoleData.cbesUserWithRole.findIndex((userWithRole: any) => userWithRole.userId === id);
+        console.log('╰┈➤ userIndexInRoleData', userIndexInRoleData);
+
+        if (userIndexInRoleData !== -1) {
+            // ถ้าเจอผู้ใช้ใน RoleData.cbesUserWithRole
+            const userWithRole = this.RoleData.cbesUserWithRole[userIndexInRoleData];
+
+            if (userWithRole.id === 0) {
+                // ถ้า id เป็น 0, ลบออกจาก RoleData.cbesUserWithRole และเพิ่มกลับไปที่ filteredData
+                this.RoleData.cbesUserWithRole.splice(userIndexInRoleData, 1);
+                const userToMove = this.userData.find((user: any) => user.id === id);
+                if (userToMove) {
+                    this.filteredData.push(userToMove);
+                    if(this.filteredData.length > 0){
+                      this.selectedUserId = this.filteredData[0].id
+                     }else{
+                      this.selectedUserId = "ไม่มียูเซอร์เหลืออยู่"
+                     }
+                }
+                console.log('☁ User id is 0, moved back to filteredData');
+            } else {
+                // ถ้า id ไม่เป็น 0, เปลี่ยนสถานะ isDeleted
+                userWithRole.isDeleted = !userWithRole.isDeleted;
+                console.log('☁ User id is not 0, toggled isDeleted');
+            }
+        } else {
+            // กรณีที่ไม่เจอผู้ใช้ใน RoleData.cbesUserWithRole
+            console.log('☁ User not found in RoleData');
+        }
+
+        console.log('☁ Updated RoleData ▶ ', this.RoleData);
+        console.log('☁ Updated filteredData ▶ ', this.filteredData);
+    }
+}
+
+
+  addUser(id: number | string | undefined) {
+    if (id != undefined && id != null && this.id != null) {
+      console.log('╰┈➤ addUser id receive', id);
+      id = parseInt(id.toString());
+      const newUser = this.userData.find((user) => user.id == id);
+      if (newUser != null && newUser != undefined) {
+        const newUserWithRole = new CBEsUserWithRole();
+        newUserWithRole.roleId = this.id;
+        newUserWithRole.userId = parseInt(id.toString());
+        newUserWithRole.user = newUser;
+        console.log('╰┈➤ push this', newUserWithRole);
+        this.RoleData.cbesUserWithRole.push(newUserWithRole);
+        console.log('╰┈➤ after push ', this.RoleData);
+           // ลบผู้ใช้จาก filteredData
+           const filteredIndex = this.filteredData.findIndex((user) => user.id == id);
+           if (filteredIndex !== -1) {
+               this.filteredData.splice(filteredIndex, 1);
+               if(this.filteredData.length > 0){
+                this.selectedUserId = this.filteredData[0].id
+               }else{
+                this.selectedUserId = "ไม่มียูเซอร์เหลืออยู่"
+               }
+           }
+        console.log('☁ Updated filteredData ▶ ', this.filteredData);
+
+      } else {
+        alert('Not Found User');
+      }
+    }
+  }
+  onSubmit() {
+    console.log('form to send data : ', this.RoleData);
+    this.roleService
+      .EditRoleGroup(this.RoleData)
+      .subscribe((result: Response) => {
+        try {
+          console.log(result.message);
+          window.location.reload();
+        } catch {
+          console.log(result.message);
         }
       });
-    }
-  }
-
-  filterUsers(): void {
-    this.filteredUsers = this.Alluser.filter(
-      user => !this.AlluserWithThisRole.some(roleUser => roleUser.id === user.id)
-    );
-    console.log("filteredUsers" , this.filteredUsers)
-  }
-
-  setUserID(user : number | null){
-    console.log("setUserID Receive : ",user)
-    this.idUser = user !== null ? parseInt(user.toString()) : null;
-  }
-
-  removeUser(index: number): void {
-    const removedUser = this.AlluserWithThisRole.splice(index, 1)[0];
-    this.filteredUsers.push(removedUser);
-    console.log("filteredUsers" , this.filteredUsers)
-  }
-
-  addUser(userId: number | null) {
-    console.log("ALL USER WITH FUNCTION : ", this.Alluser);
-    console.log("User receive : ", userId);
-
-    if (userId !== null) {
-      const UserById = this.Alluser.find(user => user.id === userId);
-      console.log("UserById : ", UserById);
-
-      if (UserById) {
-        this.AlluserWithThisRole.push(UserById);
-        this.filterUsers();
-        if (this.filteredUsers.length > 0) {
-          this.selectedUserId  = this.filteredUsers[0].id;
-          this.idUser = this.filteredUsers[0].id; // เลือกผู้ใช้คนแรก
-        } else {
-          this.idUser = null; // ไม่มีผู้ใช้ที่จะเลือกในกรณีที่ filteredUsers ว่างเปล่า
-        }
-      } else {
-        console.error("User not found with id:", userId);
-      }
-    } else {
-      console.error("Invalid user id:", userId);
-    }
-  }
-
-  saveRoleUsers(): void {
-    if (this.id != null) {
-      const  roleData = {
-        id: this.id,
-        users: this.AlluserWithThisRole.map(user => ({
-          id: user.id,
-          isDeleted: false
-        }))
-      };
-
-      // this.roleService.EditRoleWithUser(roleData).subscribe(response => {
-      //   console.log('Save successful', response);
-      // }, error => {
-      //   console.error('Save failed', error);
-      // });
-        console.log('Save successful', roleData);
-    }
   }
 }

@@ -1,6 +1,9 @@
 <div *ngIf="datafromapi == true; else LoadSuccess">
   <div *ngIf="Allroles.length == 0; else HaveData">
     <div class="container">
+      <div>
+        <h2>กล่องขยะ</h2>
+        </div>
       <table>
         <thead>
           <tr>
@@ -25,7 +28,10 @@
 
 <ng-template #HaveData>
   <div class="container">
-    <table>
+    <div>
+    <h2>กล่องขยะ</h2>
+    </div>
+    <table class="table mt-3 border border-dark border-2 text-center">
       <thead>
         <tr>
           <th>วันที่ลบ</th>

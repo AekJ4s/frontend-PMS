@@ -10,9 +10,8 @@ export default class CBEsUserWithRole{
   updateBy = 0;
   roleId = 0;
   userId = 0;
-  cbesUser = new CBEsUser
-  createByNavigation = new CBEsRole
-  role = new CBEsRole
-  updateByNavigation = new CBEsUser
+  createByNavigation : CBEsUser| null = null
+  updateByNavigation : CBEsUser| null = null
+  role : CBEsRole | null = null
   user = new CBEsUser
 }

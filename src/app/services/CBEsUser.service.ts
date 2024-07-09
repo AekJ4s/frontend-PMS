@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import CBEsRole from "../models/CBEsRole";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import Response from "../models/response";
 import { Observable } from "rxjs";
+import CBEsUserWithRole from "../models/CBEsUserWithRole";
 
 @Injectable({
   providedIn: 'root',

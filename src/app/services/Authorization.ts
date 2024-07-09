@@ -21,7 +21,6 @@ export class AuthorizationService {
       username: login.username,
       password: login.password
     };
-    console.log('Sending login request to:', url, 'with body:', body);
     return this.httpClient.post<Response>(url, body, { headers });
   }
 }

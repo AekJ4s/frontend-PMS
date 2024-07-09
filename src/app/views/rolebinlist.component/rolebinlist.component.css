@@ -1,34 +1,37 @@
-table {
-  border-collapse: collapse;
-  width: 45vw;
-  text-align: center;
+button{
+  height: 30px;
+  width: auto;
+  border-width: 2.2px;
+  border-radius: 10px;
+  border-color: rgb(71, 60, 60);
+  margin: 2px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease,background-color 0.3s ease
 }
 
-th,
-td {
+button:hover{
+  box-shadow: 5px 5px 10px rgb(71, 60, 60);
+  background-color: #fff;
+}
+
+table{
+  border-color: rgb(71, 60, 60);
+  box-shadow: 5px 5px 10px rgb(71, 60, 60);
+  border-collapse:rgb(71, 60, 60);
+
+}
+
+th{
+  background-color: rgb(71, 60, 60);
+  color: #fff;
+  font-size: large;
+}
+
+td{
   border: 1px solid rgb(0, 0, 0);
-  text-align: center;
-  padding: 8px;
 }
 
 
-th {
-  text-align: center;
-  color: rgb(0, 0, 0);
-  background-color: white;
-}
-/* CSS */
-.containerMain {
-  display: flex;
-  justify-content: center; /* จัดให้อยู่ตรงกลางตามแนวนอน */
-  align-items: center; /* จัดให้อยู่ตรงกลางตามแนวตั้ง */
-  height: 75vh; /* ทำให้ขยับได้ตามความสูงของหน้าจอ */
-}
 
-.content {
-  width: 300px; /* กำหนดความกว้างของ content */
-  height: 200px; /* กำหนดความสูงของ content */
-  background-color: #f0f0f0;
-  text-align: center; /* จัดให้อยู่ตรงกลางเนื้อหา */
-  line-height: 200px; /* จัดให้อยู่ตรงกลางแนวตั้ง */
-}
+
+
