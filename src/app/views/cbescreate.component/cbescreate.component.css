@@ -1,8 +1,3 @@
-.btn{
-  min-width: 100px;
-  width: auto;
-  height: 35px;
-}
 
 .card{
   width: 95vw;
@@ -15,9 +10,7 @@
   display: flex;
   flex-direction: column;
   width: 300px;
-
 }
-
 .feed-form input {
   height: 33px;
   border-radius: 5px;
@@ -28,10 +21,7 @@
   font-size: 14px;
   color: #4B4B4B;
   cursor: pointer;
-
 }
-
-
 .feed-form select {
   cursor: pointer;
   height: 33px;
@@ -42,47 +32,46 @@
   font-weight: 300;
   font-size: 14px;
   color: #4B4B4B;
-
-}
-
-.button_submit:hover, .feed-form input:hover, .feed-form select:hover{
-  transform: scale(1.009);
-  box-shadow: 0px 0px 3px 0px #c800ff;
-}
-
-.button_submit {
-  width: 100%;
-  height: 33px;
-  font-size: 14px;
-  color: green;
-  background: white;
-  border-radius: 5px;
-  font-weight: 500;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  border-color: green;
 }
 small {
   font-size: 0.8rem; /* ขนาดตัวหนังสือเล็ก */
   color: #ff0000;
 }
-table {
-  border-collapse: collapse;
-  width: 70vw;
-  text-align: center;
+button{
+  height: 30px;
+  width: 130px;
+  border-width: 2.2px;
+  border-radius: 10px;
+  border-color: rgb(71, 60, 60);
+  margin: 2px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease,background-color 0.3s ease
 }
-
-th,
-td {
+button:hover{
+  box-shadow: 5px 5px 10px rgb(71, 60, 60);
+  background-color: #fff;
+}
+table{
+  border-color: rgb(71, 60, 60);
+  box-shadow: 5px 5px 10px rgb(71, 60, 60);
+  border-collapse:rgb(71, 60, 60);
+  width: 90vw;
+}
+th{
+  background-color: rgb(71, 60, 60);
+  color: #fff;
+  font-size: large;
+  text-align: center;
+  vertical-align: middle;
+}
+td{
+  vertical-align: middle;
+  text-align: center;
   border: 1px solid rgb(0, 0, 0);
-  text-align: center;
-  padding: 8px;
-  text-align: left;
 }
 
-th {
-  text-align: center;
-  color: rgb(0, 0, 0);
-  size: 10px;
-  background-color: white;
-}
+
+
+
+
+

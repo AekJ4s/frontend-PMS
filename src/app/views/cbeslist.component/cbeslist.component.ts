@@ -24,7 +24,8 @@ export class CBEsListComponent {
   usesearch = false;
   constructor(
     private cbesService: CBEsService,
-    private dateformatService: DateFormatService
+    private dateformatService: DateFormatService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,8 +41,18 @@ export class CBEsListComponent {
     });
   }
 
-  onEdit(id : number){
-    console.log("edit this id   :",id)
+  onCreate(){
+    this.router.navigate(['/CBEs/create/']);
+  }
+
+  onEdit(editData : string ,id : number){
+    console.log("edit id =>",id)
+    if(editData == 'cbes'){
+    this.router.navigate(['/CBEs/editer/',id]);
+    }
+    if(editData == 'responsible'){
+      this.router.navigate(['CBEs/supervisor/editer/',id]);
+      }
   }
 
   onSearch() {
@@ -61,6 +72,24 @@ export class CBEsListComponent {
   }
 
   onDelete(id :number){
+    console.log("delete id =>",id)
+    this.cbesService.Delete(id).subscribe((result:Response)=>{
+      try{
+        alert(`${result.message}`)
+        window.location.reload();
+      }catch{
+        alert(`${result.message}`)
+        window.location.reload();
+      }
+    })
+  }
+
+  onBin(){
+    this.router.navigate(['/CBEs/bin/']);
+  }
+  onHistory(id: number){
+    console.log("History CBEs id =>",id)
+    this.router.navigate(['CBEs/history/list/',id]);
   }
 }
 

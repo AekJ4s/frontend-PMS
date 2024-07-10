@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import Response from "../models/response";
 
 @Injectable({
@@ -13,11 +13,31 @@ export class CBEsService{
     public SelecetOption = ""
 
   GetAll(){
-    // const headers = new HttpHeaders().set('Authorization', this.tokenType);
-    // const options = { headers: headers };
-    return this.httpClient.get<Response>(`${this.baseURL}`);
+    const token = localStorage.getItem('Token'); // Replace 'token' with your actual token key in LocalStorage
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${token}`); // Use Bearer token
+    return this.httpClient.get<Response>(`${this.baseURL}`,{headers});
   }
-  // GetHistoryById(){
-  //   return this.httpClient.get<Response>(`${this.baseURL}`);
-  // }
+  GetByID(id:number){
+    const token = localStorage.getItem('Token'); // Replace 'token' with your actual token key in LocalStorage
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${token}`); // Use Bearer token
+    return this.httpClient.get<Response>(`${this.baseURL}/${id}`,{headers});
+  }
+  GetCBEsInBin(){
+    const token = localStorage.getItem('Token'); // Replace 'token' with your actual token key in LocalStorage
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${token}`); // Use Bearer token
+    return this.httpClient.delete<Response>(`${this.baseURL}/bin`,{headers});
+  }
+  Delete(id:number){
+    const token = localStorage.getItem('Token'); // Replace 'token' with your actual token key in LocalStorage
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${token}`); // Use Bearer token
+    return this.httpClient.delete<Response>(`${this.baseURL}/${id}`,{headers});
+  }
 }

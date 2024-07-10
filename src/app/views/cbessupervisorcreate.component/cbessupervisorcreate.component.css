@@ -69,26 +69,39 @@ small {
   font-size: 0.8rem; /* ขนาดตัวหนังสือเล็ก */
   color: #ff0000;
 }
-table {
-  border-collapse: collapse;
-  width: 70vw;
-  text-align: center;
+button{
+  height: 30px;
+  width: 130px;
+  border-width: 2.2px;
+  border-radius: 10px;
+  border-color: rgb(71, 60, 60);
+  margin: 2px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease,background-color 0.3s ease
 }
-
-th,
-td {
+button:hover{
+  box-shadow: 5px 5px 10px rgb(71, 60, 60);
+  background-color: #fff;
+}
+table{
+  border-color: rgb(71, 60, 60);
+  box-shadow: 5px 5px 10px rgb(71, 60, 60);
+  border-collapse:rgb(71, 60, 60);
+  width: 90vw;
+}
+th{
+  background-color: rgb(71, 60, 60);
+  color: #fff;
+  font-size: large;
+  text-align: center;
+  vertical-align: middle;
+}
+td{
+  vertical-align: middle;
+  text-align: center;
   border: 1px solid rgb(0, 0, 0);
-  text-align: center; /* จัดตรงกลางในแนวนอน */
-  vertical-align: middle; /* จัดตรงกลางในแนวตั้ง */
-  padding: 2px; /* เพิ่มระยะห่างระหว่างขอบและเนื้อหา */
-
-}
-
-th {
-  text-align: center;
-  color: rgb(0, 0, 0);
-  size: 10px;
-  background-color: white;
+  justify-content: center;
+  align-items: center;
 }
 
 .level1 {
