@@ -6,6 +6,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import CBEs from '../../models/CBEs';
 import { CBEsService } from '../../services/CBEs.service';
 import Response from '../../models/response';
+import { DateFormatService } from '../../services/ConvertDate.service';
 @Component({
   selector: 'cbesbin-page',
   standalone: true,
@@ -23,14 +24,19 @@ export class CBEsBinListComponent implements OnInit {
 
   constructor(
     private cbesService : CBEsService,
-
+    private dateformatService : DateFormatService
   ) {}
 
   ngOnInit(): void {
     console.log("CBEs Bin Component")
     this.cbesService.GetCBEsInBin().subscribe((result : Response) => {
-      console.log(result.data)
-      this.AllCBEs = result.data
+      this.AllCBEs = result.data.map((data: any) => {
+        return {
+          ...data,
+          updateDate: this.dateformatService.convertDateFormat(data.updateDate), // ส่งไปแปลววันที่่ที่เซอร์วิส
+        };
+      });
+      console.log(this.AllCBEs)
     })
   }
   onSearch() {
@@ -49,7 +55,20 @@ export class CBEsBinListComponent implements OnInit {
     }
   }
 
-  onSubmit(){
-    console.log("login button work !")
+  onLastDeleted(id : number){
+    console.log("id to LastDeleted = > " ,id)
+    this.cbesService.LastDelete(id).subscribe((result:Response) => {
+      alert(result.data)
+      window.location.reload();
+    })
   }
+
+  onCancelDeleted(id : number){
+    console.log("id to CancelDeleted = > " ,id)
+    this.cbesService.CancelDeleted(id).subscribe((result:Response) => {
+      alert(result.data)
+      window.location.reload();
+    })
+  }
+
 }

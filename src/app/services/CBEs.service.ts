@@ -31,7 +31,14 @@ export class CBEsService{
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${token}`); // Use Bearer token
-    return this.httpClient.delete<Response>(`${this.baseURL}/bin`,{headers});
+    return this.httpClient.get<Response>(`${this.baseURL}/bin`,{headers});
+  }
+  CancelDeleted(id:number){
+    const token = localStorage.getItem('Token'); // Replace 'token' with your actual token key in LocalStorage
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${token}`); // Use Bearer token
+    return this.httpClient.put<Response>(`${this.baseURL}/bin/CancelDelete/${id}`,{headers});
   }
   Delete(id:number){
     const token = localStorage.getItem('Token'); // Replace 'token' with your actual token key in LocalStorage
@@ -39,5 +46,12 @@ export class CBEsService{
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${token}`); // Use Bearer token
     return this.httpClient.delete<Response>(`${this.baseURL}/${id}`,{headers});
+  }
+  LastDelete(id:number){
+    const token = localStorage.getItem('Token'); // Replace 'token' with your actual token key in LocalStorage
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${token}`); // Use Bearer token
+    return this.httpClient.delete<Response>(`${this.baseURL}/bin/LastDelete/${id}`,{headers});
   }
 }
