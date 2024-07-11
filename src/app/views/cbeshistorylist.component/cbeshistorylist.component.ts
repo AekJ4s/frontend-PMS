@@ -6,6 +6,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { CBEsService } from '../../services/CBEs.service';
 import CBEs from '../../models/CBEs';
 import Response from '../../models/response';
+import { DateFormatService } from '../../services/ConvertDate.service';
+import CBEsLog from '../../models/CBEsLog';
+import CBEsLogHeader from '../../models/CBEsLogHeader';
 @Component({
   selector: 'cbeshistorylist-page',
   standalone: true,
@@ -17,10 +20,11 @@ import Response from '../../models/response';
 export class CBEsHistoryListComponent {
   id : number | undefined = 0
   datafromapi = false
-  CBEs = new CBEs
+  LogHeader: CBEsLogHeader[] = []
   constructor(
     private route : ActivatedRoute,
-    private cbesService:CBEsService
+    private cbesService:CBEsService,
+    private dateformatService : DateFormatService,
   ) {}
 
   ngOnInit(): void {
@@ -29,12 +33,15 @@ export class CBEsHistoryListComponent {
       this.id = idParam !== null ? +idParam : 0; // Convert string to number
       console.log('id receive : ', this.id);
     });
-
     if(this.id != 0 && this.id != undefined && this.id != null){
-      this.cbesService.GetByID(this.id).subscribe((result:Response)=>{
-        this.CBEs = result.data
-        console.log("✉ DATA FATCH API :" , this.CBEs)
-        this.datafromapi = true
+      this.cbesService.GetHistory(this.id).subscribe((result:Response)=>{
+        this.LogHeader = result.data.map((data: any) => {
+          return {
+            ...data,
+            updateDate: this.dateformatService.convertDateFormat(data.updateDate), // ส่งไปแปลววันที่่ที่เซอร์วิส
+          };
+        });
+        console.log(this.LogHeader)
       })
     }else{
       this.datafromapi = true

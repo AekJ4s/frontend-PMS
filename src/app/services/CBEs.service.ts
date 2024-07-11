@@ -54,4 +54,11 @@ export class CBEsService{
       .set('Authorization', `Bearer ${token}`); // Use Bearer token
     return this.httpClient.delete<Response>(`${this.baseURL}/bin/LastDelete/${id}`,{headers});
   }
+  GetHistory(id:number){
+    const token = localStorage.getItem('Token'); // Replace 'token' with your actual token key in LocalStorage
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${token}`); // Use Bearer token
+    return this.httpClient.get<Response>(`${this.baseURL}/history/${id}`,{headers});
+  }
 }

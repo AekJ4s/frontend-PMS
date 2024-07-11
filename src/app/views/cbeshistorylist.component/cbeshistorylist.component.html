@@ -22,16 +22,16 @@
           <th>รอบ</th>
           <th>ผู้แก้ไข</th>
           <th>หมายเหตุ</th>
-          <th></th>
+          <th>รายละเอียด</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>03/12/2564 12:12</td>
-          <td>หลักเกณฑ์</td>
-          <td>2</td>
-          <td>นายณภัทร ไชยพราหมณ์</td>
-          <td>มีการปรับแผนเนี่ยงจากสถานะการณ์ COVID</td>
+        <tr *ngFor="let item of LogHeader;let i = index">
+          <td>{{item.updateDate}}</td>
+          <td>{{item.cbesLogType.name}}</td>
+          <td>{{item.round}}</td>
+          <td>updateBy Object</td>
+          <td>{{item.remark}}</td>
           <td>
             <button>รายละเอียด</button>
           </td>

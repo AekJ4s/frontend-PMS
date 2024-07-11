@@ -1,6 +1,8 @@
+import CBEs from "./CBEs";
 import CBEsLog from "./CBEsLog";
 import CBEsLogType from "./CBEsLogType";
 import CbesMaturityLog from "./CBEsMaturityLog";
+import CBEsUsers from "./CBEsUser";
 
 export default class CBEsLogHeader {
     id = 0;
@@ -10,9 +12,10 @@ export default class CBEsLogHeader {
     updateDate = new Date();
     isDeleted = false;
     cbesLogTypeId = 0;
-    cbesLogId = 0;
-    cbesLog = new CBEsLog
+    cbesId = 0;
+    updateBy = 0
+    updateByNavigation = new CBEsUsers
+    cbes = new CBEs
     cbesLogType = new CBEsLogType
-    cbesLogs: CBEsLog[] = [];
     cbesMaturityLogs: CbesMaturityLog[] = [];
 }
