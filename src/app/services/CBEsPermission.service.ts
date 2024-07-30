@@ -7,7 +7,7 @@ import Response from "../models/response";
 })
 
 export class CBEsPermissionService{
-  private readonly baseURL = 'http://192.168.1.14:8000/api/CBEsPermission'
+  private readonly baseURL = 'http://192.168.1.11:8000/api/CBEsPermission'
 
   constructor(private httpClient: HttpClient) {}
     public SelecetOption = ""

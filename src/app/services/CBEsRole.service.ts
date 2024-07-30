@@ -10,7 +10,7 @@ import CBEsUserWithRole from "../models/CBEsUserWithRole";
 })
 
 export class CBEsRoleService{
-  private readonly baseURL = 'http://192.168.1.14:8000/api/CBEsRole'
+  private readonly baseURL = 'http://192.168.1.11:8000/api/CBEsRole'
 
   constructor(private httpClient: HttpClient) {}
     public SelecetOption = ""

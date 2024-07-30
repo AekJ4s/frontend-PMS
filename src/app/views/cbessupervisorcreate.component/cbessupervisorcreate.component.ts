@@ -17,7 +17,7 @@ import { LoadingComponent } from '../loading/loading.component';
 })
 export class CBEsSupervisorCreateComponent {
   id : number | undefined = 0
-  datafromapi = false
+  datafromapi = true
   CBEs = new CBEs
   constructor(
     private route: ActivatedRoute,
@@ -39,7 +39,6 @@ export class CBEsSupervisorCreateComponent {
         this.datafromapi = true
       })
     }else{
-      this.router.navigate(['/CBEs/bin/']);
 
     }
   }

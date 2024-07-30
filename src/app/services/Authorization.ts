@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthorizationService {
-  private readonly baseURL = 'http://192.168.1.14:8000/api/Authorization/Login';
+  private readonly baseURL = 'http://192.168.1.11:8000/api/Authorization/Login';
   private accessToken = localStorage.getItem('Bearer');
   private tokenType = `Bearer ${this.accessToken}`;
 
